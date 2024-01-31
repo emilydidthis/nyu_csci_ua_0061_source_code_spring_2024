@@ -74,3 +74,8 @@ console.log(converted4, typeof(converted4));
 // method 2 - use concatenation
 let converted5 = a + "";
 console.log(converted5, typeof(converted5));
+
+// determines whether a value is NaN, first converting the value to a number if necessary
+console.log(isNaN("5")); // false
+console.log(isNaN("hello")); // true
+console.log(isNaN(2)); // false
