@@ -8,6 +8,7 @@ const elThree = document.getElementById('three');
 
 // tell this element to set up an event for when the user
 // clicks on it. this method is preferred over setting up inline listeners
+// anonymous function syntax
 elThree.onclick = function() {
   alert("This was set up in the external JS file");
 }
@@ -16,6 +17,6 @@ elThree.onclick = function() {
 const elFour = document.getElementById('four');
 
 // you can add multiple event listeners on the same element
-// anonymous function syntax
+// arrow function syntax
 elFour.addEventListener("click", ()=> alert("DOM Event Listener"))
 elFour.addEventListener("click", ()=> console.log("DOM Event Listener"))

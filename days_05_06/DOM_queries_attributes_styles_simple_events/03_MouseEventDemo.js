@@ -1,6 +1,31 @@
-// grab a reference to the element with id 'box' 
+// grab a reference to the element with id 'box'
+const elBox = document.getElementById("box"); 
 
 // grab a reference to the 'history' panel
+const elHistory = document.getElementById("history"); 
 
 // attach a series of mouse events to this element with id 'box'
-// 1. add "clicked" text to the 'history' panel when 'box' is clicked
+// each of these events will update the 'history' panel
+elBox.onclick = function() {
+    elHistory.innerText += "clicked\n"; 
+}
+
+elBox.ondblclick = function() {
+    elHistory.innerText += "double clicked\n"; 
+}
+
+elBox.onmousedown = function() {
+    elHistory.innerText += "mouse down\n"; 
+}
+
+elBox.onmouseup = function() {
+    elHistory.innerText += "mouse up\n"; 
+}
+
+elBox.onmouseover = function() {
+    elHistory.innerText += "mouse over\n"; 
+}
+
+elBox.onmouseout = function() {
+    elHistory.innerText += "mouse out\n"; 
+}

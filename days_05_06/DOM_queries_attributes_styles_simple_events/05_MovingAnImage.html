@@ -58,6 +58,51 @@
       let currentLeft = 250;
       let currentTop = 0;
 
+      // move pikachu based on the button pressed
+      btnLeft.onclick = function() {
+        // make sure we haven't hit the bounds of the play area
+        if (currentLeft > 0) {
+          // update global variable (integer)
+          currentLeft -= 50;
+
+          // update the element's style (string) - note the use of the 'px' unit string
+          pikachu.style.left = currentLeft + 'px';
+        }
+      }
+
+      btnRight.onclick = function() {
+        // make sure we haven't hit the bounds of the play area
+        if (currentLeft < 450) {
+          // update global variable (integer)
+          currentLeft += 50;
+
+          // update the element's style (string) - note the use of the 'px' unit string
+          pikachu.style.left = currentLeft + 'px';
+        }
+      }
+
+      btnUp.onclick = function() {
+        // make sure we haven't hit the bounds of the play area
+        if (currentTop > 0) {
+          // update global variable (integer)
+          currentTop -= 50;
+
+          // update the element's style (string) - note the use of the 'px' unit string
+          pikachu.style.top = currentTop + 'px';
+        }
+      }
+
+      btnDown.onclick = function() {
+        // make sure we haven't hit the bounds of the play area
+        if (currentTop < 150) {
+          // update global variable (integer)
+          currentTop += 50;
+
+          // update the element's style (string) - note the use of the 'px' unit string
+          pikachu.style.top = currentTop + 'px';
+        }
+      }
+
     </script>
 
   </body>
