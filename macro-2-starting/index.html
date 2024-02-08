@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Macro #2</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #holder {
+                background-image: url("assignment02_images/backgrounds/afternoon.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                height: 100%;
+            }
+
+            #figure {
+                display: flex;
+                flex-direction: column; /* main axis */
+                /* by default align-items is set to stretch when in a flex box */
+                align-items: center; /* cross axis */
+                position: absolute;
+                bottom: 0px; 
+                right: 20%;   
+            }
+            
+            #info {
+                position: absolute;
+                top: 50px;
+                left: 50px;
+            }
+
+            h1 {
+                color: white;
+                font-size: 2.5em;
+                margin-bottom: 50px;
+            }
+
+            #time {
+                background-color: rgba(255, 255, 255, 0.75);
+                border-radius: 25px;
+                padding: 15px;
+                width: fit-content;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="holder">
+            <div id="info">
+                <h1>Everything is Awesome</h1>
+                <div id="time"> This time is current XX:YY am</div>
+            </div>
+            <div id="figure">
+                <img src="assignment02_images/heads/head1.png">
+                <img src="assignment02_images/bodies/body1.png">
+            </div>
+        </div>
+        <script src=""></script>
+    </body>
+</html>

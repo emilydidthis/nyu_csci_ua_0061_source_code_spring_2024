@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Macro #3</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #grass{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                position: absolute;
+                bottom: 0px;
+            }
+
+            #scene{
+                position: relative;
+                width: fit-content;
+                height: 100%;
+            }
+
+            #background{
+                position: relative;
+                display: block;
+            }
+
+            #grass img:hover {
+                background-color: rgba(255,255,0,.5);
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="scene">
+            <!-- background image -->
+            <img id="background" src="images/environment_forestbackground.png">
+            <div id="grass">
+                <img id="grass1" src="images/grass.png">
+                <img id="grass2" src="images/grass.png">
+                <img id="grass3" src="images/grass.png">
+            </div>
+            <!-- three clusters of grass -->
+        </div>
+
+        <script src="" ></script>
+    </body>
+</html>
