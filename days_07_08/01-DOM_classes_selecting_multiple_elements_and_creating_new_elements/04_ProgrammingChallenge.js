@@ -9,6 +9,8 @@ const contentTraditional = document.getElementById('contentTraditional');
 const contentGlazed = document.getElementById('contentGlazed');
 
 // set up click handlers to let the user click on each tab
+
+//  event handler to make our Welcome Tab active
 tabWelcome.onclick = function() {
   // first, make this tab our 'active' tab by applying the 'active' class to it
 
