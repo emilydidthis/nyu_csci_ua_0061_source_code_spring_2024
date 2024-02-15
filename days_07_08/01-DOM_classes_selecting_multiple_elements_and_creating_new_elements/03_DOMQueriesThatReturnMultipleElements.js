@@ -5,6 +5,7 @@
 // this collection will be updated to include this new element.
 const allYellowDivs = document.getElementsByClassName('yellowBackground');
 
+
 // if we print this out we will see a collection of nodes
 console.log(allYellowDivs);
 

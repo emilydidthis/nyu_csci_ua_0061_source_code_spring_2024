@@ -66,20 +66,20 @@
       document.getElementById('button3').onclick = makeYellow;
 
       // we can also do this by using a multiple element DOM Query
-      // const lotsOfButtons1 = document.querySelectorAll('#lotsofbuttons1 button');
-      // for (let i = 0; i < lotsOfButtons1.length; i++) {
-      //   lotsOfButtons1[i].onclick = makeYellow;
-      // }
+      const lotsOfButtons1 = document.querySelectorAll('#lotsofbuttons1 button');
+      for (let i = 0; i < lotsOfButtons1.length; i++) {
+        lotsOfButtons1[i].onclick = makeYellow;
+      }
 
       // there's also no need to set up a single function ahead
       // of time for this.  we can easily do this using an anonymous
       // function that we create inside of a loop.  for example:
-      // const lotsOfButtons2 = document.querySelectorAll('#lotsofbuttons2 button');
-      // for (let i = 0; i < lotsOfButtons2.length; i++) {
-      //   lotsOfButtons2[i].onclick = function(event) {
-      //     event.currentTarget.style.backgroundColor = 'blue';
-      //   }
-      // }
+      const lotsOfButtons2 = document.querySelectorAll('#lotsofbuttons2 button');
+      for (let i = 0; i < lotsOfButtons2.length; i++) {
+        lotsOfButtons2[i].onclick = function(event) {
+          event.currentTarget.style.backgroundColor = 'blue';
+        }
+      }
 
     </script>
   </body>
