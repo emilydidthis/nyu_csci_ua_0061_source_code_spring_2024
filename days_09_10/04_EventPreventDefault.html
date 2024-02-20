@@ -35,7 +35,7 @@
 
         // prevent the browser from performing its default behavior
         // (opening the URL in the href property)
-        // event.preventDefault();
+        event.preventDefault();
 
         results.innerHTML += "Link 1 was clicked<br>";
       }
@@ -45,11 +45,11 @@
 
         // prevent the browser from performing its default behavior
         // (opening the URL in the href property)
-        //event.preventDefault();
+        event.preventDefault();
 
         // prevent additional event listeners from triggering up
         // from this element to its parent element
-        //event.stopPropagation();
+        event.stopPropagation();
 
         results.innerHTML += "Link 2 was clicked<br>";
       }
