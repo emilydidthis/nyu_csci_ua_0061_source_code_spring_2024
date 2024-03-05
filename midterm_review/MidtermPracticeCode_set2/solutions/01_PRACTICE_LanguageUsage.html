@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-us">
+
+  <head>
+    <title>JavaScript Language Usage</title>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <h1>JavaScript Language Usage</h1>
+
+
+    <script>
+    console.log("here")
+      // problem 1
+
+      var hours = parseFloat(prompt("How many hours did you work? "));
+      var rate = parseFloat(prompt("What is your hourly rate? "));
+
+      if (hours <= 40) {
+        var pay = hours * rate;
+      }
+      if (hours > 40) {
+        var pay = 40 * rate;
+        var overtimePay = (hours - 40) * (rate * 1.5);
+        pay = pay + overtimePay;
+      }
+
+      document.write("Your pay this week is: " + pay);
+
+
+
+
+      // problem 2
+
+      var cards = ['ace of spades', 'king of spades', 'queen of spades', 'jack of spades'];
+
+      while (cards.length > 0) {
+        var rIndex = parseInt(Math.random() * cards.length);
+        console.log(cards[rIndex]);
+        cards.splice(rIndex, 1);
+      }
+
+
+
+
+      // problem 3
+
+      var coins = ['q', 'd', 'd', 'n', 'd', 'n', 'p', 'p', 'p', 'p', 'q'];
+      var countObject = {};
+
+      for (var i = 0; i < coins.length; i++) {
+        if (countObject[coins[i]] === undefined) {
+          countObject[coins[i]] = 1;
+        } else {
+          countObject[coins[i]] += 1;
+        }
+      }
+
+      console.log(countObject);
+    </script>
+
+  </body>
+
+</html>

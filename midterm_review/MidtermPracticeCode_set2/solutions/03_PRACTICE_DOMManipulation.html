@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-us">
+
+  <head>
+    <title>DOM Queries</title>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <h1>DOM Queries</h1>
+
+    <div id="foo">Foo</div>
+    <div id="bar">
+      <div>Bar</div>
+    </div>
+    <div class="hogwarts">Hogwarts 1</div>
+    <div class="hogwarts">Hogwarts 1</div>
+    <div class="hogwarts">Hogwarts 1</div>
+    <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+    </ul>
+
+
+
+
+
+
+
+    <script>
+      // Give the <h1> tag a yellow background
+      document.querySelector('h1').style['background-color'] = 'yellow';
+
+      // Set up all text on the page to be written using the 'Fantasy' font
+      document.querySelector('body').style['font-family'] = 'fantasy';
+
+      // Give the second <li> tag a green font color
+      document.querySelectorAll('li')[1].style.color = 'green';
+
+      // Give all 'hogwarts' divs a width of 50px, height of 50px and a thick black border.
+      var allHogs = document.querySelectorAll('.hogwarts');
+      for (var i = 0; i < allHogs.length; i++) {
+        allHogs[i].style.width = '50px'
+        allHogs[i].style.height = '50px'
+        allHogs[i].style['background-color'] = 'pink';
+        allHogs[i].style.border = '1px solid black'
+      }
+    </script>
+  </body>
+
+</html>

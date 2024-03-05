@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Candy Collector</title>
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        background: orange;
+        font-family: 'Eater', sans-serif;
+      }
+
+      .candyContainer {
+        float: left;
+        width: 150px;
+        min-height: 200px;
+      }
+
+      .bag {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .message {
+        font-size: 80%;
+      }
+
+      #oldcandy {
+        margin-top: 30px;
+      }
+
+      #add {
+        background-color: black;
+        font-family: 'Eater', sans-serif;
+        color: white;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Candy Collector!</h1>
+    <p>Collect candy and trade it in for something you really want!</p>
+    <ul>
+      <li>Select "Trick or Treat" from the drop down and click "add to bag"</li>
+      <li>A random piece of candy will appear with an appropriate tagline - "tricks" tend to be negative, and "treats" tend to be postitive.</li>
+      <li>You can click on a candy 3 times to "swap" it.  Every time you swap a candy it gets a new tagline based on its original type (trick or treat) - it also gets a new graphic.</li>
+      <li>After 3 clicks the candy can longer be swapped and will move to the "old candy" pile at the bottom of the page.</li>
+    </ul>
+
+    <div id="form">
+        Trick or treat?
+        <select id="trickortreat">
+          <option value="trick">Trick</option>
+          <option value="treat">Treat</option>
+        </select>
+      <button id="add">Add to Bag</button>
+    </div>
+
+    <div id="bag" class="bag">
+
+      <!-- a suggested template for a new candy unit - feel free to change / adjust / add features to this as
+           needed you can remove this template once you've gotten your program working -->
+      <div class="candyContainer">
+        <img src="images/candy_corn.png">
+        <div class="message">
+          scary mutant!
+        </div>
+      </div>
+
+    </div>
+
+    <br style="clear: both;">
+    <p>Old candy will go here ...</p>
+    <div id="oldcandy"></div>
+
+    <script>
+      // candy graphics
+      let candyGraphics = ['images/candy_corn.png', 'images/lollypop.png', 'images/bat_pop.png']
+
+      // string of all 'treat' adjectives
+      let treatAdjectives = "adaptable efficient joyous romantic adorable elated lucky sedate agreeable eminent kind seemly alert enchanting kind-hearted selective alluring encouraging knowledgeable self-assured ambitious energetic level sensitive amused entertaining likeable shrewd boundless enthusiastic lively silly brave excellent lovely sincere bright excited loving skillful calm exclusive mature successful capable exuberant modern smiling charming fabulous nice splendid cheerful fair obedient steadfast coherent faithful painstaking stimulating comfortable fantastic peaceful succinct confident fearless perfect talented cooperative fine placid thoughtful courageous frank plausible thrifty credible friendly pleasant tough cultured funny plucky trustworthy dashing generous productive unbiased dazzling gentle protective unusual debonair glorious proud upbeat decisive good punctual vigorous decorous happy quiet vivacious delightful harmonious receptive warm detailed helpful reflective willing determined hilarious relieved wise diligent honorable resolute witty discreet impartial responsible wonderful dynamic industrious rhetorical zany eager instinctive righteous zealous endurable jolly"
+
+      // string of all 'trick' adjectives
+      let trickAdjectives = "abrasive disagreeable ignorant stingy abrupt disillusioned ill strange abusive disturbed irresolute sulky afraid domineering jealous tacky aloof draconian jittery tense ambiguous embarrassed lacking terrible angry envious lazy testy annoyed erratic lonely thick-skinned anxious evasive malicious thoughtless arrogant evil materialistic threatening ashamed faded mean tight awful fanatical mysterious timid bad fierce naive tired belligerent filthy nasty tiresome bewildered finicky naughty troubled boorish flashy nervous truculent bored flippant noisy typical boring foolish obnoxious undesirable callous forgetful outrageous unsuitable careless frantic panicky unsure clumsy fretful pathetic upset combative frightened possessive uptight confused furtive quarrelsome vague cowardly greedy repulsive vengeful crazy grieving ruthless venomous creepy grouchy sad volatile cruel gruesome scary voracious cynical grumpy secretive vulgar dangerous guarded selfish wary deceitful gullible silly wasteful defeated helpless slow weak defective hesitant sneaky weary defiant snobbish wicked demonic horrible sore worried depressed hungry spendthrift worthless deranged hurt squeamish wretched"
+
+      // string of all spooky nouns to go after the adjectives
+      let nouns = "Bat Hound Raccoon Bug Owl Spider Cat Rat Tarantula Crow Snake Worm Apple Fangs Mask Candy Goodies Doorbell Hat Wig Makeup Alien Giant Vampire Boogeyman Goblin Villain Cyclops Mummy Warlock Extraterrestrial Mutant Werewolf Ghost Shapeshifter Witch Ghoul Troll Zombie"
+
+
+      // SOLUTION
+
+      // parse the strings into arrays for easy access
+      let tricksArray = trickAdjectives.split(' ');
+      let treatsArray = treatAdjectives.split(' ');
+
+      // get DOM refs
+      let trickortreatDropdown = document.getElementById('trickortreat');
+      let addButton = document.getElementById('add');
+      let bag = document.getElementById('bag');
+      let oldcandy = document.getElementById('oldcandy');
+
+      // add a new candy item
+      addButton.addEventListener('click', function(e) {
+
+        /* CANDY TEMPLATE
+        <div class="candyContainer">
+          <img src="images/candy_corn.png">
+          <div class="message">
+            scary mutant!
+          </div>
+        </div>
+        */
+
+        // construct container for this candy
+        let tempDiv = document.createElement('div');
+        tempDiv.classList.add('candyContainer');
+
+        // create an image
+        let tempImage = document.createElement('img');
+        let imageSrc = candyGraphics[ parseInt( Math.random() * candyGraphics.length) ];
+        tempImage.src = imageSrc;
+        tempDiv.appendChild(tempImage);
+
+        // create the message
+        let tempMessage = document.createElement('div');
+        tempMessage.classList.add('message');
+
+        // determine what kind of candy we are adding (trick or treat)
+        let adjective;
+        if (trickortreatDropdown.value == 'trick') {
+          // parse the trick adjectives and pick one
+          adjective = tricksArray[ parseInt( Math.random() * tricksArray.length) ];
+          tempDiv.dataset.type = 'trick';
+        }
+        else {
+          // parse the treat adjectives and pick one
+          adjective = treatsArray[ parseInt( Math.random() * treatsArray.length) ];
+          tempDiv.dataset.type = 'treat';
+        }
+
+        // pick a random noun
+        let nounsArray = nouns.split(" ");
+        let noun = nounsArray[ parseInt( Math.random() * nounsArray.length) ];
+
+        tempMessage.innerHTML = `${adjective} ${noun}<br>3 clicks left!`;
+        tempDiv.appendChild(tempMessage);
+
+        // add to bag
+        bag.appendChild( tempDiv );
+
+        // when you click on the candy we need to re-randomize its noun & adjective
+        // along with its image.  to make sure this only happens 3 times we can use
+        // a dataset property
+        tempDiv.dataset.clicksLeft = 3;
+
+        tempDiv.onclick = function(e) {
+
+          // reduce clicks left & update dataset
+          let clicksLeft = parseInt(e.currentTarget.dataset.clicksLeft) - 1;
+          e.currentTarget.dataset.clicksLeft = clicksLeft;
+
+          // if we've gone negative we need to move the candy down to the bottom of the screen
+          if (clicksLeft < 0) {
+            e.currentTarget.remove();
+            oldcandy.appendChild( e.currentTarget );
+
+            // prevent future clicks from affecting this element
+            e.currentTarget.onclick = null;
+          }
+
+          // otherwise pick new values for our text
+          else {
+            // pick new image
+            let imageSrc = candyGraphics[ parseInt( Math.random() * candyGraphics.length) ];
+            e.currentTarget.firstElementChild.src = imageSrc;
+
+            // pick new adjective
+            if (e.currentTarget.dataset.type == 'trick') {
+              adjective = tricksArray[ parseInt( Math.random() * tricksArray.length) ];
+            }
+            else {
+              adjective = treatsArray[ parseInt( Math.random() * treatsArray.length) ];
+            }
+
+            // update text
+            e.currentTarget.lastElementChild.innerHTML = `${adjective} ${noun}<br>${clicksLeft} clicks left!`;
+          }
+
+        }
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

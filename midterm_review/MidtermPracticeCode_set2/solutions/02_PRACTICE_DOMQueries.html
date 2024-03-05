@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-us">
+
+  <head>
+    <title>DOM Queries</title>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <h1>DOM Queries</h1>
+
+    <div id="foo">Foo</div>
+    <div id="bar">
+      <div>Bar</div>
+    </div>
+    <div class="hogwarts">Hogwarts 1</div>
+    <div class="hogwarts">Hogwarts 1</div>
+    <div class="hogwarts">Hogwarts 1</div>
+    <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+    </ul>
+
+
+    <script>
+      // The <h1> tag
+      var a = document.querySelector('h1');
+      console.log(a);
+
+      // The <div id="foo"> tag
+      var b = document.getElementById('foo');
+      console.log(b);
+
+      // The <div> with the text "Bar" in it
+      var c = document.querySelector('#bar div');
+      console.log(c);
+
+      // The first "Hogwarts 1" div
+      var d = document.querySelector('.hogwarts');
+      console.log(d);
+
+      // The third "Hogwarts 1" div
+      var e = document.querySelectorAll('.hogwarts')[2];
+      console.log(e);
+
+      // The first <li> tag
+      var f = document.querySelector('li');
+      console.log(f);
+
+      // The last <li> tag
+      var g = document.querySelectorAll('li')[2];
+      console.log(g);
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Candy Collector</title>
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        background: orange;
+        font-family: 'Eater', sans-serif;
+      }
+
+      .candyContainer {
+        float: left;
+        width: 150px;
+        min-height: 200px;
+      }
+
+      .bag {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .message {
+        font-size: 80%;
+      }
+
+      #oldcandy {
+        margin-top: 30px;
+      }
+
+      #add {
+        background-color: black;
+        font-family: 'Eater', sans-serif;
+        color: white;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Candy Collector!</h1>
+    <p>Collect candy and trade it in for something you really want!</p>
+    <ul>
+      <li>Select "Trick or Treat" from the drop down and click "add to bag"</li>
+      <li>A random piece of candy will appear with an appropriate tagline - "tricks" tend to be negative, and "treats" tend to be postitive.</li>
+      <li>You can click on a candy 3 times to "swap" it.  Every time you swap a candy it gets a new tagline based on its original type (trick or treat) - it also gets a new graphic.</li>
+      <li>After 3 clicks the candy can longer be swapped and will move to the "old candy" pile at the bottom of the page.</li>
+    </ul>
+
+    <div id="form">
+        Trick or treat?
+        <select id="trickortreat">
+          <option value="trick">Trick</option>
+          <option value="treat">Treat</option>
+        </select>
+      <button id="add">Add to Bag</button>
+    </div>
+
+    <div id="bag" class="bag">
+
+      <!-- a suggested template for a new candy unit - feel free to change / adjust / add
+           features / parameters to this as needed you can remove this template once
+           you've gotten your program working -->
+      <div class="candyContainer">
+        <img src="images/candy_corn.png">
+        <div class="message">
+          scary mutant!
+        </div>
+      </div>
+
+    </div>
+
+    <br style="clear: both;">
+    <div id="oldcandy">Old candy will go here ...</div>
+
+    <script>
+      // candy graphics
+      let candyGraphics = ['images/candy_corn.png', 'images/lollypop.png', 'images/bat_pop.png']
+
+      // string of all 'treat' adjectives
+      let treatAdjectives = "adaptable efficient joyous romantic adorable elated lucky sedate agreeable eminent kind seemly alert enchanting kind-hearted selective alluring encouraging knowledgeable self-assured ambitious energetic level sensitive amused entertaining likeable shrewd boundless enthusiastic lively silly brave excellent lovely sincere bright excited loving skillful calm exclusive mature successful capable exuberant modern smiling charming fabulous nice splendid cheerful fair obedient steadfast coherent faithful painstaking stimulating comfortable fantastic peaceful succinct confident fearless perfect talented cooperative fine placid thoughtful courageous frank plausible thrifty credible friendly pleasant tough cultured funny plucky trustworthy dashing generous productive unbiased dazzling gentle protective unusual debonair glorious proud upbeat decisive good punctual vigorous decorous happy quiet vivacious delightful harmonious receptive warm detailed helpful reflective willing determined hilarious relieved wise diligent honorable resolute witty discreet impartial responsible wonderful dynamic industrious rhetorical zany eager instinctive righteous zealous endurable jolly"
+
+      // string of all 'trick' adjectives
+      let trickAdjectives = "abrasive disagreeable ignorant stingy abrupt disillusioned ill strange abusive disturbed irresolute sulky afraid domineering jealous tacky aloof draconian jittery tense ambiguous embarrassed lacking terrible angry envious lazy testy annoyed erratic lonely thick-skinned anxious evasive malicious thoughtless arrogant evil materialistic threatening ashamed faded mean tight awful fanatical mysterious timid bad fierce naive tired belligerent filthy nasty tiresome bewildered finicky naughty troubled boorish flashy nervous truculent bored flippant noisy typical boring foolish obnoxious undesirable callous forgetful outrageous unsuitable careless frantic panicky unsure clumsy fretful pathetic upset combative frightened possessive uptight confused furtive quarrelsome vague cowardly greedy repulsive vengeful crazy grieving ruthless venomous creepy grouchy sad volatile cruel gruesome scary voracious cynical grumpy secretive vulgar dangerous guarded selfish wary deceitful gullible silly wasteful defeated helpless slow weak defective hesitant sneaky weary defiant snobbish wicked demonic horrible sore worried depressed hungry spendthrift worthless deranged hurt squeamish wretched"
+
+      // string of all spooky nouns to go after the adjectives
+      let nouns = "Bat Hound Raccoon Bug Owl Spider Cat Rat Tarantula Crow Snake Worm Apple Fangs Mask Candy Goodies Doorbell Hat Wig Makeup Alien Giant Vampire Boogeyman Goblin Villain Cyclops Mummy Warlock Extraterrestrial Mutant Werewolf Ghost Shapeshifter Witch Ghoul Troll Zombie"
+
+
+
+    </script>
+
+  </body>
+
+</html>
